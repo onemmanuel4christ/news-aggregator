@@ -1,0 +1,32 @@
+<div class="container" *ngIf="articles.length > 0" style="margin-top: 100px">
+  <div *ngFor="let article of displayedArticles">
+    <div class="article">
+      <h2>{{ article.title }}</h2>
+      <p *ngIf="article.author">Author: {{ article.author }}</p>
+      <p *ngIf="article.description">{{ article.description }}</p>
+      <img
+        *ngIf="article.urlToImage"
+        [src]="article.urlToImage"
+        alt="Article Thumbnail"
+      />
+      <p>Publication Date: {{ article.publishedAt | date }}</p>
+      <a [href]="article.url" target="_blank">Read More</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="articles.length === 0" style="margin-top: 100px">
+  <p>No articles found.</p>
+</div>
+
+<div
+  *ngIf="totalPages > 1"
+  style="max-width: 300px; margin: 0 auto; display: flex; gap: 10px"
+>
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">
+    Previous
+  </button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">
+    Next
+  </button>
+</div>

@@ -1,0 +1,12 @@
+.article {
+  margin-bottom: 20px;
+}
+
+.article h2 {
+  margin-bottom: 5px;
+}
+
+.article img {
+  max-width: 100%;
+  height: auto;
+}

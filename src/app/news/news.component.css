@@ -1,0 +1,57 @@
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #ff9101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.logo {
+  width: fit-content;
+  flex-shrink: inherit;
+}
+.search {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex: 1;
+}
+input {
+  outline: none;
+  border: 0;
+  padding: 4px;
+  border-radius: 5px;
+}
+button {
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  border: 0;
+  padding: 0.5rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    justify-self: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    width: 50%;
+    flex-shrink: 0;
+  }
+  .search {
+    flex: 1;
+    width: 100%;
+  }
+}
