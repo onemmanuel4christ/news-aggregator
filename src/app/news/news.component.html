@@ -1,17 +1,24 @@
-  <div class="menu">
-    <img src="assets/logolp.png" alt="Your Website Logo" class="logo" style="width: 200px" />
+<div class="menu">
+  <a href="/">
+    <img
+      src="assets/logolp.png"
+      alt="Your Website Logo"
+      class="logo"
+      style="width: 200px"
+    />
+  </a>
 
-    <div class="search">
-      <input
-        type="text"
-        placeholder="Search news by keyword"
-        [(ngModel)]="searchTerm"
-        (keyup.enter)="searchArticles()"
-        style="width: 100%;"
-      />
-      <button (click)="searchArticles()">Search</button>
-    </div>
+  <div class="search">
+    <input
+      type="text"
+      placeholder="Search news by keyword"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="searchArticles()"
+      style="width: 100%"
+    />
+    <button (click)="searchArticles()">Search</button>
   </div>
+</div>
 
 <app-news-list
   *ngIf="searchResults.length > 0"

@@ -36,6 +36,7 @@ export class NewsListComponent {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
       this.updateDisplayedArticles();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -43,6 +44,7 @@ export class NewsListComponent {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updateDisplayedArticles();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 

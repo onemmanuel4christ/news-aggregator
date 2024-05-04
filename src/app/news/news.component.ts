@@ -29,18 +29,7 @@ export class NewsComponent implements OnInit {
       }
     );
   }
-  // searchArticles(): void {
-  //   if (this.searchTerm.trim() !== '') {
-  //     this.newsService.searchArticlesByKeyword(this.searchTerm).subscribe(
-  //       (response) => {
-  //         this.searchResults = response.articles;
-  //       },
-  //       (error) => {
-  //         console.error('Error searching articles:', error);
-  //       }
-  //     );
-  //   }
-  // }
+ 
   searchArticles(): void {
     if (this.searchTerm.trim() !== '') {
       window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="articles.length > 0" style="margin-top: 100px">
+<div class="container" *ngIf="articles.length > 0" style="margin-top: 120px">
   <div *ngFor="let article of displayedArticles">
     <div class="article">
       <h2>{{ article.title }}</h2>
@@ -14,19 +14,19 @@
     </div>
   </div>
 </div>
-<div *ngIf="articles.length === 0" style="margin-top: 100px">
+<div *ngIf="articles.length === 0" style="margin-top: 120px">
   <p>No articles found.</p>
 </div>
 
 <div
   *ngIf="totalPages > 1"
-  style="max-width: 300px; margin: 0 auto; display: flex; gap: 10px"
+  style="max-width: 300px; margin: 0 auto; display: flex; gap: 10px; margin-bottom: 2rem;"
 >
   <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">
-    Previous
+    << Previous
   </button>
   <span>Page {{ currentPage }} of {{ totalPages }}</span>
   <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">
-    Next
+    Next >>
   </button>
 </div>
