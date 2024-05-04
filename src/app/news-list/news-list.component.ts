@@ -6,7 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./news-list.component.css'],
 })
 export class NewsListComponent {
+  //accepting articles from parents using input decorator
   @Input() articles: any[] = [];
+
+  // declaring variables
   displayedArticles: any[] = [];
   currentPage: number = 1;
   articlesPerPage: number = 10;
@@ -17,6 +20,7 @@ export class NewsListComponent {
     this.updateDisplayedArticles();
   }
 
+  //function to update the articles
   updateDisplayedArticles(): void {
     const startIndex = (this.currentPage - 1) * this.articlesPerPage;
     this.displayedArticles = this.articles.slice(
@@ -25,12 +29,8 @@ export class NewsListComponent {
     );
   }
 
-  goToPage(pageNumber: number): void {
-    if (pageNumber >= 1 && pageNumber <= this.totalPages) {
-      this.currentPage = pageNumber;
-      this.updateDisplayedArticles();
-    }
-  }
+
+  // function to go to next page
 
   goToNextPage(): void {
     if (this.currentPage < this.totalPages) {
@@ -39,6 +39,7 @@ export class NewsListComponent {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
+  // function to go to Prev page
 
   goToPreviousPage(): void {
     if (this.currentPage > 1) {
@@ -47,7 +48,7 @@ export class NewsListComponent {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
-
+  // function to get total pages
   get totalPages(): number {
     return Math.ceil(this.articles.length / this.articlesPerPage);
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms'; 
 
 import { NewsService } from '../service/news.service';
 
@@ -13,12 +13,13 @@ export class NewsComponent implements OnInit {
   searchResults: any[] = [];
   searchTerm: string = '';
 
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
     this.fetchTopHeadlines();
   }
 
+  //function to fetch the topheadlines
   fetchTopHeadlines(): void {
     this.newsService.getTopHeadlines().subscribe(
       (response) => {
@@ -30,6 +31,7 @@ export class NewsComponent implements OnInit {
     );
   }
  
+  //function to get news by keywords
   searchArticles(): void {
     if (this.searchTerm.trim() !== '') {
       window.scrollTo({ top: 0, behavior: 'smooth' });

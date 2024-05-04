@@ -2,13 +2,16 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NewsService {
-  private apiKey = '7e338c37b7b443be997d6bdf752d33ca'; // Replace 'YOUR_API_KEY' with your actual News API key
-  private apiUrl = 'https://newsapi.org/v2';
+  // private apiKey = '7e338c37b7b443be997d6bdf752d33ca';
+  // private apiUrl = 'https://newsapi.org/v2';
+  private apiKey = environment.apiKey;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
   // Method to fetch top headlines
@@ -24,18 +27,18 @@ export class NewsService {
       })
     );
   }
-// Method to search articles by keyword
+
+  // Method to search articles by keyword
   searchArticlesByKeyword(keyword: string): Observable<any> {
     const url = `${this.apiUrl}/everything`;
     const params = new HttpParams()
       .set('apiKey', this.apiKey)
       .set('q', keyword);
     return this.http.get<any>(url, { params }).pipe(
-      catchError(error => {
+      catchError((error) => {
         console.error('Error searching articles by keyword:', error);
         throw error;
       })
     );
   }
-
 }
