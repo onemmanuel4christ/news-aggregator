@@ -7,7 +7,7 @@ import { NewsListComponent } from './news-list/news-list.component';
 import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, NewsComponent, NewsListComponent],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule,],
   providers: [],
   bootstrap: [AppComponent],
 })

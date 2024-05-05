@@ -1,11 +1,6 @@
 <div class="menu">
   <a href="/">
-    <img
-      src="assets/logolp.png"
-      alt="Logo"
-      class="logo"
-      style="width: 200px"
-    />
+    <img src="assets/logolp.png" alt="Logo" class="logo" style="width: 200px" />
   </a>
 
   <div class="search">
@@ -28,6 +23,15 @@
   *ngIf="searchResults.length === 0 && topHeadlines.length > 0"
   [articles]="topHeadlines"
 ></app-news-list>
-<div *ngIf="searchResults.length === 0 && topHeadlines.length === 0">
+<div
+  *ngIf="searchResults.length === 0 && topHeadlines.length === 0 && !loading"
+  style="margin-top: 200px; display: grid; place-items: center"
+>
   <p>No articles found.</p>
+</div>
+<div
+  *ngIf="loading"
+  style="margin-top: 200px; display: grid; place-items: center"
+>
+  <h1>Loading...</h1>
 </div>

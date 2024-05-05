@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 
 import { NewsComponent } from './news.component';
@@ -14,7 +14,7 @@ describe('NewsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NewsComponent],
-      imports: [FormsModule, HttpClientModule],
+      imports: [FormsModule, HttpClientTestingModule],
       providers: [NewsService],
     }).compileComponents();
   });
@@ -48,7 +48,7 @@ describe('NewsComponent', () => {
     };
     spyOn(newsService, 'searchArticlesByKeyword').and.returnValue(of(response));
 
-    component.searchTerm = 'keyword';
+    component.searchTerm = 'lagos';
     component.searchArticles();
 
     expect(component.searchResults.length).toBe(2);
