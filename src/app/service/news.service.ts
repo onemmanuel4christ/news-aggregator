@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment.development';
   providedIn: 'root',
 })
 export class NewsService {
-  // private apiKey = '7e338c37b7b443be997d6bdf752d33ca';
-  // private apiUrl = 'https://newsapi.org/v2';
   private apiKey = environment.apiKey;
   private apiUrl = environment.apiUrl;
 
@@ -19,7 +17,7 @@ export class NewsService {
     const url = `${this.apiUrl}/top-headlines`;
     const params = new HttpParams()
       .set('apiKey', this.apiKey)
-      .set('country', 'us'); // Default country, you can change it as per your requirement
+      .set('country', 'us'); 
     return this.http.get<any>(url, { params }).pipe(
       catchError((error) => {
         console.error('Error fetching top headlines:', error);
