@@ -1,11 +1,13 @@
 .menu {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+
+}
+.main_nmenu {
   background-color: #ff9101;
-  position: fixed;
+   position: fixed;
   top: 0;
   left: 0;
   right: 0;
